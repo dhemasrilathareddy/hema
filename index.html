@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D Hemasri Latha | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #0a192f;
+      --card: #112240;
+      --text: #ccd6f6;
+      --white: #ffffff;
+      --accent: #64ffda;
+      --muted: #8892b0;
+      --border: rgba(100, 255, 218, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 25, 47, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    #home {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero small {
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      color: var(--white);
+      margin: 15px 0;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .typing {
+      color: var(--muted);
+      font-size: 24px;
+      min-height: 40px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 20px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #071c2f;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .avatar {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--accent);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--accent);
+      font-size: 70px;
+      font-weight: bold;
+      margin: auto;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      color: var(--accent);
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 35px;
+      color: var(--white);
+      margin-bottom: 30px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .education {
+      list-style: none;
+    }
+
+    .education li {
+      margin-bottom: 18px;
+    }
+
+    .education strong {
+      color: var(--white);
+      display: block;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .skill-header span:last-child {
+      color: var(--accent);
+    }
+
+    .bar {
+      width: 100%;
+      height: 8px;
+      background: #233554;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .project h3 {
+      color: var(--white);
+      margin: 12px 0;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      margin: 15px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--accent);
+      background: rgba(100, 255, 218, 0.08);
+      padding: 4px 8px;
+      margin: 3px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .project a {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* DASHBOARD */
+    .dashboard {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .counter {
+      font-size: 55px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .dashboard button {
+      margin-top: 20px;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 10px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    form {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0 18px;
+      background: #0a192f;
+      color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      outline: none;
+    }
+
+    textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    label {
+      color: var(--muted);
+    }
+
+    form button {
+      border: none;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .socials {
+      margin-top: 10px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .skills-grid,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .avatar {
+        width: 200px;
+        height: 200px;
+        font-size: 55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="container">
+      <div class="logo">DL.data</div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#dashboard">Stats</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="theme-btn" onclick="toggleTheme()">☀</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <small>Hello, I'm</small>
+
+        <h1>
+          D Hemasri <span>Latha</span>
+        </h1>
+
+        <div class="typing">
+          <span id="typing"></span>
+        </div>
+
+        <p>
+          I am a Semester 5 B.E. Computer Science Engineering student
+          at CITNC, passionate about technology, data science,
+          programming, and building practical solutions.
+        </p>
+
+        <a href="mailto:dhemasrilathareddy@gmail.com"
+           class="btn">
+          Contact Me
+        </a>
+
+        <a href="#projects"
+           class="btn btn-outline">
+          View Projects
+        </a>
+      </div>
+
+      <div>
+        <div class="avatar">DL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-title">01. ABOUT ME</div>
+
+      <h2>About Me</h2>
+
+      <div class="about-grid">
+
+        <div class="card">
+          <p>
+            Hello! I'm <strong>D Hemasri Latha</strong>, currently pursuing
+            my B.E. in Computer Science Engineering at
+            <strong>CITNC</strong>.
+          </p>
+
+          <p>
+            I am currently studying in Semester 5 and developing my
+            knowledge in computer science, programming, data analytics,
+            machine learning, and modern technologies.
+          </p>
+
+          <p>
+            I enjoy learning new technologies, working on projects,
+            analyzing data, and improving my technical skills.
+          </p>
+        </div>
+
+        <div class="card">
+
+          <ul class="education">
+
+            <li>
+              <strong>🎓 B.E. Computer Science Engineering</strong>
+              CITNC — Semester 5
+            </li>
+
+            <li>
+              <strong>🏫 PUC</strong>
+              Aurobindo PU College
+            </li>
+
+            <li>
+              <strong>📚 10th Board</strong>
+              BEL CBSE Vidyalaya
+            </li>
+
+            <li>
+              <strong>📧 Email</strong>
+              dhemasrilathareddy@gmail.com
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-title">02. SKILLS</div>
+
+      <h2>My Technical Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>Python</span>
+            <span>85%</span>
+          </div>
+          <div class="bar">
+            <span style="width:85%"></span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>R</span>
+            <span>70%</span>
+          </div>
+          <div class="bar">
+            <span style="width:70%"></span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>SQL</span>
+            <span>80%</span>
+          </div>
+          <div class="bar">
+            <span style="width:80%"></span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>Machine Learning</span>
+            <span>70%</span>
+          </div>
+          <div class="bar">
+            <span style="width:70%"></span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>Pandas</span>
+            <span>80%</span>
+          </div>
+          <div class="bar">
+            <span style="width:80%"></span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>Scikit-Learn</span>
+            <span>70%</span>
+          </div>
+          <div class="bar">
+            <span style="width:70%"></span>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header">
+            <span>Data Visualization</span>
+            <span>75%</span>
+          </div>
+          <div class="bar">
+            <span style="width:75%"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-title">03. PROJECTS</div>
+
+      <h2>My Projects</h2>
+
+      <div class="projects">
+
+        <div class="project">
+
+          <small style="color:#64ffda;">01 / DATA SCIENCE</small>
+
+          <h3>Predictive House Pricing Model</h3>
+
+          <p>
+            A machine learning project that predicts house prices
+            using different housing features and regression techniques.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Scikit-Learn</span>
+          </div>
+
+          <a href="https://github.com/" target="_blank">
+            GitHub ↗
+          </a>
+
+        </div>
+
+        <div class="project">
+
+          <small style="color:#64ffda;">02 / NLP</small>
+
+          <h3>Sentiment Analysis on Twitter Data</h3>
+
+          <p>
+            A natural language processing project that analyzes
+            text data and identifies positive, negative, and neutral
+            sentiment.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Matplotlib</span>
+          </div>
+
+          <a href="https://github.com/" target="_blank">
+            GitHub ↗
+          </a>
+
+        </div>
+
+        <div class="project">
+
+          <small style="color:#64ffda;">03 / DASHBOARD</small>
+
+          <h3>Customer Churn Dashboard</h3>
+
+          <p>
+            A data visualization dashboard for analyzing customer
+            behavior, churn patterns, and important business metrics.
+          </p>
+
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Analytics</span>
+          </div>
+
+          <a href="https://github.com/" target="_blank">
+            GitHub ↗
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard">
+    <div class="container">
+
+      <div class="section-title">04. STATS / DASHBOARD</div>
+
+      <h2>My Coding Activity</h2>
+
+      <div class="dashboard">
+
+        <div class="counter" id="counter">
+          24
+        </div>
+
+        <p>
+          Hours of coding and learning this week
+        </p>
+
+        <button onclick="increaseHours()">
+          + Add Coding Hour
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-title">05. CONTACT</div>
+
+      <h2>Get In Touch</h2>
+
+      <div class="contact-grid">
+
+        <div class="card">
+
+          <h3 style="color:white;">
+            Let's Connect
+          </h3>
+
+          <br>
+
+          <p>
+            If you would like to connect with me regarding projects,
+            learning opportunities, collaborations, or technology,
+            feel free to contact me.
+          </p>
+
+          <p>
+            <strong>Email:</strong><br>
+            dhemasrilathareddy@gmail.com
+          </p>
+
+          <p>
+            <strong>College:</strong><br>
+            CITNC
+          </p>
+
+          <p>
+            <strong>Degree:</strong><br>
+            B.E. Computer Science Engineering
+          </p>
+
+        </div>
+
+        <form id="contactForm">
+
+          <label>Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+          >
+
+          <label>Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+          >
+
+          <label>Message</label>
+          <textarea
+            id="message"
+            placeholder="Enter your message"
+          ></textarea>
+
+          <button type="submit" class="btn">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © <span id="year"></span> D Hemasri Latha.
+        All Rights Reserved.
+      </p>
+
+      <div class="socials">
+
+        <a href="https://github.com/" target="_blank">
+          GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank">
+          LinkedIn
+        </a>
+
+        <a href="https://www.kaggle.com/" target="_blank">
+          Kaggle
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    /* TYPEWRITER EFFECT */
+
+    const titles = [
+      "Data Science Student",
+      "Machine Learning Enthusiast",
+      "Python Developer"
+    ];
+
+    let titleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeWriter() {
+
+      const currentTitle = titles[titleIndex];
+
+      if (!deleting) {
+        document.getElementById("typing").textContent =
+          currentTitle.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentTitle.length) {
+          deleting = true;
+          setTimeout(typeWriter, 1500);
+          return;
+        }
+
+      } else {
+
+        document.getElementById("typing").textContent =
+          currentTitle.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+          titleIndex++;
+
+          if (titleIndex === titles.length) {
+            titleIndex = 0;
+          }
+        }
+      }
+
+      setTimeout(typeWriter, deleting ? 50 : 90);
+    }
+
+    typeWriter();
+
+    /* DARK / LIGHT THEME */
+
+    function toggleTheme() {
+
+      if (document.body.style.background === "rgb(245, 248, 252)") {
+
+        document.body.style.background = "#0a192f";
+        document.body.style.color = "#ccd6f6";
+
+      } else {
+
+        document.body.style.background = "#f5f8fc";
+        document.body.style.color = "#10233f";
+
+      }
+    }
+
+    /* CODING HOURS COUNTER */
+
+    let hours = 24;
+
+    function increaseHours() {
+
+      hours++;
+
+      document.getElementById("counter").textContent = hours;
+
+    }
+
+    /* CONTACT FORM VALIDATION */
+
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name =
+          document.getElementById("name").value.trim();
+
+        const email =
+          document.getElementById("email").value.trim();
+
+        const message =
+          document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+
+          alert(
+            "Please fill in your name, email, and message."
+          );
+
+          return;
+        }
+
+        const emailPattern =
+          /^[^ ]+@[^ ]+\\.[a-z]{2,3}$/;
+
+        if (!email.match(emailPattern)) {
+
+          alert("Please enter a valid email address.");
+
+          return;
+        }
+
+        alert(
+          "Thank you, " +
+          name +
+          "! Your message has been validated successfully."
+        );
+
+        document.getElementById("contactForm").reset();
+
+      });
+
+    /* CURRENT YEAR */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
