@@ -1,2 +1,2 @@
-# hema
-Hey just created a simple profile using htm l,css and javascript using chatgpt prompt 
+# demo-profile
+Hey just created a simple profile using htm ,css and javascript using chatgpt prompt 
